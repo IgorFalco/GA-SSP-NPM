@@ -1,0 +1,25 @@
+Instância: ins397_m=4_j=40_t=120_sw=h_dens=d_var=17
+============================================================
+
+Parâmetros do AG:
+  - População: 100
+  - Gerações: 1000
+  - Prob. Crossover: 0.8
+  - Prob. Mutação: 0.2
+
+Dados da Instância:
+  - Máquinas: 4
+  - Jobs: 40
+  - Ferramentas: 120
+
+Resultados:
+  - Tempo de execução: 6.36s
+  - Makespan inicial: 1783.0
+  - Melhor makespan: 1601.0
+  - Melhoria: 182.0 (10.21%)
+
+Melhor solução encontrada:
+  Máquina 0: [35, 15, 5, 12, 4, 26, 32]
+  Máquina 1: [33, 23, 34, 3, 38, 11, 9, 21, 19, 20]
+  Máquina 2: [31, 28, 15, 2, 8, 30, 0, 37, 29, 17]
+  Máquina 3: [7, 6, 22, 1, 27, 16, 10, 13, 39, 14, 18]

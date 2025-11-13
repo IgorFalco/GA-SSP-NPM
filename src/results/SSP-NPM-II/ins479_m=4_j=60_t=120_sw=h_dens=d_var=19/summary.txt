@@ -1,0 +1,25 @@
+Instância: ins479_m=4_j=60_t=120_sw=h_dens=d_var=19
+============================================================
+
+Parâmetros do AG:
+  - População: 100
+  - Gerações: 1000
+  - Prob. Crossover: 0.8
+  - Prob. Mutação: 0.2
+
+Dados da Instância:
+  - Máquinas: 4
+  - Jobs: 60
+  - Ferramentas: 120
+
+Resultados:
+  - Tempo de execução: 8.85s
+  - Makespan inicial: 2706.0
+  - Melhor makespan: 2419.0
+  - Melhoria: 287.0 (10.61%)
+
+Melhor solução encontrada:
+  Máquina 0: [33, 38, 44, 43, 3, 35, 40, 54, 4, 0, 1, 39, 2]
+  Máquina 1: [41, 20, 35, 16, 56, 48, 44, 5, 37, 7, 49, 29, 24]
+  Máquina 2: [42, 12, 18, 8, 10, 30, 46, 11, 31, 6, 57, 22, 19, 13, 23, 15, 21]
+  Máquina 3: [50, 55, 17, 36, 25, 9, 45, 27, 52, 14, 26, 59, 58, 47, 28, 53, 51]

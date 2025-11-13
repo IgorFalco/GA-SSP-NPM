@@ -1,0 +1,11 @@
+instance,solution_id,iterations,execution_time,tool_switches,makespan
+ins1_m=2_j=10_t=10_var=1.csv,iter_728_perturbed_vnd_swap,1000,39.53013730049133,3,59
+ins1_m=2_j=10_t=10_var=1.csv,iter_918_perturbed_vnd_swap,1000,39.53013730049133,3,59
+ins1_m=2_j=10_t=10_var=1.csv,iter_936_perturbed_vnd_job_exchange,1000,39.53013730049133,3,59
+ins1_m=2_j=10_t=10_var=1.csv,iter_969_perturbed,1000,39.53013730049133,3,59
+ins1_m=2_j=10_t=10_var=1.csv,iter_748_perturbed_vnd_swap,1000,39.53013730049133,3,59
+ins1_m=2_j=10_t=10_var=1.csv,iter_954_perturbed_vnd_swap,1000,39.53013730049133,3,59
+ins1_m=2_j=10_t=10_var=1.csv,iter_927_perturbed_vnd_job_exchange,1000,39.53013730049133,3,59
+ins1_m=2_j=10_t=10_var=1.csv,iter_989_perturbed,1000,39.53013730049133,3,59
+ins1_m=2_j=10_t=10_var=1.csv,iter_157_perturbed_vnd_job_exchange_vnd_job_exchange_vnd_two_opt,1000,39.53013730049133,4,32
+ins1_m=2_j=10_t=10_var=1.csv,iter_999_perturbed_vnd_job_exchange_vnd_insertion_vnd_insertion_vnd_one_block,1000,39.53013730049133,4,32

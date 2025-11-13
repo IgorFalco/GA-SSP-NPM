@@ -1,0 +1,23 @@
+Instância: ins67_m=2_j=15_t=15_var=7
+============================================================
+
+Parâmetros do AG:
+  - População: 100
+  - Gerações: 1000
+  - Prob. Crossover: 0.8
+  - Prob. Mutação: 0.2
+
+Dados da Instância:
+  - Máquinas: 2
+  - Jobs: 15
+  - Ferramentas: 15
+
+Resultados:
+  - Tempo de execução: 2.34s
+  - Makespan inicial: 84.0
+  - Melhor makespan: 71.0
+  - Melhoria: 13.0 (15.48%)
+
+Melhor solução encontrada:
+  Máquina 0: [11, 13, 7, 0, 9, 5, 3, 6]
+  Máquina 1: [6, 14, 4, 10, 0, 7, 2]

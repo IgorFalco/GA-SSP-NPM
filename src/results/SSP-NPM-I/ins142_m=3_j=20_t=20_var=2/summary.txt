@@ -1,0 +1,24 @@
+Instância: ins142_m=3_j=20_t=20_var=2
+============================================================
+
+Parâmetros do AG:
+  - População: 100
+  - Gerações: 1000
+  - Prob. Crossover: 0.8
+  - Prob. Mutação: 0.2
+
+Dados da Instância:
+  - Máquinas: 3
+  - Jobs: 20
+  - Ferramentas: 20
+
+Resultados:
+  - Tempo de execução: 3.18s
+  - Makespan inicial: 75.0
+  - Melhor makespan: 64.0
+  - Melhoria: 11.0 (14.67%)
+
+Melhor solução encontrada:
+  Máquina 0: [8, 18, 12, 0, 17, 14, 3]
+  Máquina 1: [0, 12, 5, 2, 6, 8, 10]
+  Máquina 2: [5, 13, 17, 10, 2, 18]

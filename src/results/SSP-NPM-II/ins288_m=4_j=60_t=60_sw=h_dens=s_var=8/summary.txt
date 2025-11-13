@@ -1,0 +1,25 @@
+Instância: ins288_m=4_j=60_t=60_sw=h_dens=s_var=8
+============================================================
+
+Parâmetros do AG:
+  - População: 100
+  - Gerações: 1000
+  - Prob. Crossover: 0.8
+  - Prob. Mutação: 0.2
+
+Dados da Instância:
+  - Máquinas: 4
+  - Jobs: 60
+  - Ferramentas: 60
+
+Resultados:
+  - Tempo de execução: 8.36s
+  - Makespan inicial: 545.0
+  - Melhor makespan: 490.0
+  - Melhoria: 55.0 (10.09%)
+
+Melhor solução encontrada:
+  Máquina 0: [44, 46, 11, 28, 51, 47, 38, 42, 39, 41, 10, 50, 43, 49, 23]
+  Máquina 1: [35, 6, 37, 58, 9, 33, 12, 20, 24, 15, 32, 17, 31, 16, 25]
+  Máquina 2: [12, 15, 20, 39, 31, 19, 18, 38, 54, 17, 8, 40, 13, 53, 10]
+  Máquina 3: [41, 59, 32, 38, 3, 43, 0, 58, 36, 5, 14, 15, 18, 55, 23]

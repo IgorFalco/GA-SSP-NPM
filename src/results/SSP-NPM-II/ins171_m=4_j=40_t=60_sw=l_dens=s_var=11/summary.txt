@@ -1,0 +1,25 @@
+Instância: ins171_m=4_j=40_t=60_sw=l_dens=s_var=11
+============================================================
+
+Parâmetros do AG:
+  - População: 100
+  - Gerações: 1000
+  - Prob. Crossover: 0.8
+  - Prob. Mutação: 0.2
+
+Dados da Instância:
+  - Máquinas: 4
+  - Jobs: 40
+  - Ferramentas: 60
+
+Resultados:
+  - Tempo de execução: 5.90s
+  - Makespan inicial: 182.0
+  - Melhor makespan: 152.0
+  - Melhoria: 30.0 (16.48%)
+
+Melhor solução encontrada:
+  Máquina 0: [21, 5, 3, 25, 9, 18, 0, 39, 8, 36]
+  Máquina 1: [28, 9, 10, 18, 3, 31, 32, 6, 20, 22]
+  Máquina 2: [7, 14, 26, 19, 24, 35, 18, 12, 0, 29]
+  Máquina 3: [4, 30, 36, 6, 18, 13, 35, 7, 33, 8]

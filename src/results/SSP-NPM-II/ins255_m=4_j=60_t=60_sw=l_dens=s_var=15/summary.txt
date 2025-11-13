@@ -1,0 +1,25 @@
+Instância: ins255_m=4_j=60_t=60_sw=l_dens=s_var=15
+============================================================
+
+Parâmetros do AG:
+  - População: 100
+  - Gerações: 1000
+  - Prob. Crossover: 0.8
+  - Prob. Mutação: 0.2
+
+Dados da Instância:
+  - Máquinas: 4
+  - Jobs: 60
+  - Ferramentas: 60
+
+Resultados:
+  - Tempo de execução: 8.67s
+  - Makespan inicial: 266.0
+  - Melhor makespan: 205.0
+  - Melhoria: 61.0 (22.93%)
+
+Melhor solução encontrada:
+  Máquina 0: [10, 41, 25, 49, 19, 52, 32, 3, 8, 15, 17, 45, 53, 16, 7]
+  Máquina 1: [16, 58, 45, 22, 34, 20, 26, 57, 56, 9, 29, 2, 5, 3, 53]
+  Máquina 2: [12, 23, 0, 42, 48, 41, 47, 35, 11, 40, 38, 5, 25, 4, 27]
+  Máquina 3: [54, 1, 0, 58, 33, 9, 21, 5, 6, 47, 27, 38, 18, 20, 59]

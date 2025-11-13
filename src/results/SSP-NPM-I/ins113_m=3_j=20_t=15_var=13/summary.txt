@@ -1,0 +1,24 @@
+Instância: ins113_m=3_j=20_t=15_var=13
+============================================================
+
+Parâmetros do AG:
+  - População: 100
+  - Gerações: 1000
+  - Prob. Crossover: 0.8
+  - Prob. Mutação: 0.2
+
+Dados da Instância:
+  - Máquinas: 3
+  - Jobs: 20
+  - Ferramentas: 15
+
+Resultados:
+  - Tempo de execução: 3.16s
+  - Makespan inicial: 60.0
+  - Melhor makespan: 54.0
+  - Melhoria: 6.0 (10.00%)
+
+Melhor solução encontrada:
+  Máquina 0: [8, 13, 1, 18, 7, 19, 15]
+  Máquina 1: [0, 19, 3, 2, 15, 18, 7]
+  Máquina 2: [9, 10, 11, 2, 18, 13]

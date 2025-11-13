@@ -1,0 +1,27 @@
+Instância: ins553_m=6_j=80_t=120_sw=h_dens=d_var=13
+============================================================
+
+Parâmetros do AG:
+  - População: 100
+  - Gerações: 1000
+  - Prob. Crossover: 0.8
+  - Prob. Mutação: 0.2
+
+Dados da Instância:
+  - Máquinas: 6
+  - Jobs: 80
+  - Ferramentas: 120
+
+Resultados:
+  - Tempo de execução: 15.11s
+  - Makespan inicial: 2761.0
+  - Melhor makespan: 2607.0
+  - Melhoria: 154.0 (5.58%)
+
+Melhor solução encontrada:
+  Máquina 0: [69, 25, 63, 32, 18, 41, 7, 8, 42, 51, 35, 36]
+  Máquina 1: [64, 78, 9, 1, 30, 7, 21, 8, 39, 53, 26, 63, 25]
+  Máquina 2: [59, 17, 23, 47, 39, 67, 64, 11, 62, 16, 77, 43, 14]
+  Máquina 3: [77, 66, 24, 2, 41, 67, 61, 19, 4, 47, 46, 75, 79, 44]
+  Máquina 4: [45, 74, 79, 22, 38, 15, 58, 68, 29, 5, 51, 65, 55]
+  Máquina 5: [60, 49, 0, 50, 70, 73, 52, 72, 71, 54, 40, 33, 20, 57, 31]

@@ -1,0 +1,25 @@
+Instância: ins290_m=4_j=60_t=60_sw=h_dens=s_var=10
+============================================================
+
+Parâmetros do AG:
+  - População: 100
+  - Gerações: 1000
+  - Prob. Crossover: 0.8
+  - Prob. Mutação: 0.2
+
+Dados da Instância:
+  - Máquinas: 4
+  - Jobs: 60
+  - Ferramentas: 60
+
+Resultados:
+  - Tempo de execução: 8.33s
+  - Makespan inicial: 506.0
+  - Melhor makespan: 373.0
+  - Melhoria: 133.0 (26.28%)
+
+Melhor solução encontrada:
+  Máquina 0: [17, 53, 35, 27, 45, 18, 30, 8, 54, 57, 41, 12, 28, 58, 15]
+  Máquina 1: [20, 54, 11, 57, 18, 39, 49, 33, 14, 41, 31, 13, 48, 17, 50]
+  Máquina 2: [7, 13, 3, 24, 2, 33, 50, 39, 26, 38, 30, 20, 14, 36, 12]
+  Máquina 3: [9, 19, 4, 2, 56, 46, 39, 52, 22, 3, 23, 0, 40, 59, 48]

@@ -1,0 +1,24 @@
+Instância: ins129_m=3_j=15_t=20_var=9
+============================================================
+
+Parâmetros do AG:
+  - População: 100
+  - Gerações: 1000
+  - Prob. Crossover: 0.8
+  - Prob. Mutação: 0.2
+
+Dados da Instância:
+  - Máquinas: 3
+  - Jobs: 15
+  - Ferramentas: 20
+
+Resultados:
+  - Tempo de execução: 2.77s
+  - Makespan inicial: 41.0
+  - Melhor makespan: 38.0
+  - Melhoria: 3.0 (7.32%)
+
+Melhor solução encontrada:
+  Máquina 0: [5, 6, 9, 4, 3]
+  Máquina 1: [13, 10, 7, 6, 3]
+  Máquina 2: [8, 0, 3, 9, 6]

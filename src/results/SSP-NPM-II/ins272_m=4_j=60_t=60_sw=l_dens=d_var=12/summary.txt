@@ -1,0 +1,25 @@
+Instância: ins272_m=4_j=60_t=60_sw=l_dens=d_var=12
+============================================================
+
+Parâmetros do AG:
+  - População: 100
+  - Gerações: 1000
+  - Prob. Crossover: 0.8
+  - Prob. Mutação: 0.2
+
+Dados da Instância:
+  - Máquinas: 4
+  - Jobs: 60
+  - Ferramentas: 60
+
+Resultados:
+  - Tempo de execução: 8.29s
+  - Makespan inicial: 770.0
+  - Melhor makespan: 669.0
+  - Melhoria: 101.0 (13.12%)
+
+Melhor solução encontrada:
+  Máquina 0: [56, 23, 1, 10, 19, 21, 26, 8, 54, 40, 17, 38, 46]
+  Máquina 1: [38, 21, 57, 42, 25, 16, 43, 2, 23, 13, 37, 18]
+  Máquina 2: [5, 22, 34, 6, 51, 16, 44, 31, 53, 58, 45, 50, 56, 15, 12]
+  Máquina 3: [21, 36, 14, 28, 52, 7, 11, 4, 29, 48, 22, 9, 50, 39, 0, 54]

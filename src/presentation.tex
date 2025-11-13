@@ -1,0 +1,157 @@
+% Beamer presentation for SSP-NPM GA results
+\documentclass{beamer}
+\mode<presentation>{
+  \usetheme{Madrid}
+}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{hyperref}
+
+\definecolor{codegray}{rgb}{0.95,0.95,0.95}
+\lstset{
+  backgroundcolor=\color{codegray},
+  basicstyle=\ttfamily\footnotesize,
+  breaklines=true,
+  columns=fullflexible,
+  frame=single,
+  framerule=0pt
+}
+
+\title[AG Monoobjetivo - SSP-NPM]{Algoritmo Genético Monoobjetivo para SSP-NPM}
+\author{Igor Falco}
+\institute{Projeto: SSP-NPM / Implementação DEAP}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Sumário}
+  \tableofcontents
+\end{frame}
+
+\section{Introdução}
+\begin{frame}{Introdução}
+  \begin{itemize}
+    \item Problema: SSP-NPM (Sequenciamento e Atribuição de Jobs a Máquinas com restrições de ferramentas e troca de ferramentas).
+    \item Objetivo desta versão: minimizar o \textbf{makespan} (problema monoobjetivo).
+    \item Instâncias: coleções em `instances/SSP-NPM-I` e `instances/SSP-NPM-II`.
+  \end{itemize}
+\end{frame}
+
+\section{Motivação}
+\begin{frame}{Motivação}
+  \begin{itemize}
+    \item IC implementando VNS com busca local para soluções multiobjetivas.
+    \item Objetivo: criar uma código monoobjetivo utilizando computação evolucionária e comparar os resultados.
+    \item Vantagens: Conseguir rodar todas as instãncias em um dia.
+  \end{itemize}
+\end{frame}
+
+\section{Algoritmo}
+\begin{frame}[fragile]{Algoritmo Utilizado}
+  \footnotesize
+  \begin{itemize}
+    \item \textbf{Biblioteca:} \texttt{DEAP} (Algoritmos Evolucionários).
+    \item \textbf{Representação:} matriz máquina × posição, usando \texttt{0} para posições vazias.
+      \begin{center}
+    \includegraphics[width=0.5\textwidth]{tabela.png}
+  \end{center}
+    \item \textbf{Operadores:}
+      \begin{itemize}
+        \item Seleção por torneio
+        \item Crossover entre máquinas
+        \item Mutação por swap dentro da máquina
+      \end{itemize}
+    \item \textbf{Fitness:} cálculo do makespan usando rotinas otimizadas com Numba.
+  \end{itemize}
+
+\end{frame}
+
+
+\section{Exemplos}
+\begin{frame}{Exemplo (Instância pequena)}
+  \begin{itemize}
+    \item Instância exemplo: `ins1-m=2-j=10-t=10-var=1` (SSP-NPM-I)
+    \item Evolução do fitness durante as gerações:
+  \end{itemize}
+  \begin{center}
+    \includegraphics[width=0.9\textwidth]{ins1_m=2_j=10_t=10_var=1.png}
+  \end{center}
+\end{frame}
+
+\begin{frame}{Exemplo (Instância média)}
+  \begin{itemize}
+    \item Instância exemplo: `ins161-m=4-j=40-t=60-sw=l-dens=s-var=1` (SSP-NPM-II)
+    \item Evolução do fitness durante as gerações:
+  \end{itemize}
+  \begin{center}
+    \includegraphics[width=0.9\textwidth]{ins161_m=4_j=40_t=60_sw=l_dens=s_var=1.png}
+  \end{center}
+\end{frame}
+
+\begin{frame}{Exemplo (Instância grande)}
+  \begin{itemize}
+    \item Instância exemplo: `ins640-m=6-j=120-t=120-sw=h-dens=d-var=20` (SSP-NPM-II)
+    \item Evolução do fitness durante as gerações:
+  \end{itemize}
+  \begin{center}
+    \includegraphics[width=0.9\textwidth]{ins640_m=6_j=120_t=120_sw=h_dens=d_var=20.png}
+  \end{center}
+\end{frame}
+
+\section{Resultados e Observações}
+\begin{frame}{Resultados e Observações}
+  \begin{itemize}
+    \item Observação: Não foi possível comparar com o código VNS original porque ele ainda não estava pronto.
+    \item Tempo: execução completa (ambos conjuntos) projetada para poucas horas; execução parcial de `SSP-NPM-I` (160 instâncias) levou minutos em máquina local.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Comparação Rápida com VNS}
+  \begin{itemize}
+    \item Usei os resultados VNS disponíveis em `vns/` e coletei o menor makespan por instância.
+  \end{itemize}
+  \vspace{2mm}
+  \begin{tabular}{l c c c c}
+    	oprule
+    Instância & GA (best) & VNS (best) & Diferença & Melhor \\
+    \midrule
+    ins1_m=2_j=10_t=10_var=1 & 34 & 32 & 2 & VNS \\
+    ins121_m=3_j=15_t=20_var=1 & 45 & 41 & 4 & VNS \\
+    \bottomrule
+  \end{tabular}
+  \vspace{3mm}
+  \small Observação: o valor VNS é o menor makespan observado entre todos os `pareto_wall_run_*.csv` na pasta `vns/`.
+\end{frame}
+
+\section{Como Reproduzir}
+\begin{frame}{Como Reproduzir}
+  \begin{itemize}
+    \item Instalar dependências: \texttt{pip install -r src/requirements.txt}
+    \item Executar: entrar em `src/` e rodar \texttt{python main_deap.py}
+    \item Saída: resultados salvos em `src/results/` por pasta e instância.
+  \end{itemize}
+\end{frame}
+
+\section{Conclusão}
+\begin{frame}{Conclusão}
+  \begin{itemize}
+    \item Implementamos rapidamente o algoritmo monoobjetivo usando DEAP e as rotinas Numba para avaliação.
+    \item O algoritmo converge muito mais rápido que os algoritmos tradicionais.
+    \item Próximo passo: Implementar o VNS como forma de refinamento para a solução encontrada pelo algoritmo genético.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Perguntas}
+  \begin{center}
+    \LARGE Obrigado! \\[6pt]
+  \end{center}
+\end{frame}
+
+\end{document}

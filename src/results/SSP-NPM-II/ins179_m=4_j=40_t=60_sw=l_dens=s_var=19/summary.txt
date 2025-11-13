@@ -1,0 +1,25 @@
+Instância: ins179_m=4_j=40_t=60_sw=l_dens=s_var=19
+============================================================
+
+Parâmetros do AG:
+  - População: 100
+  - Gerações: 1000
+  - Prob. Crossover: 0.8
+  - Prob. Mutação: 0.2
+
+Dados da Instância:
+  - Máquinas: 4
+  - Jobs: 40
+  - Ferramentas: 60
+
+Resultados:
+  - Tempo de execução: 5.82s
+  - Makespan inicial: 169.0
+  - Melhor makespan: 147.0
+  - Melhoria: 22.0 (13.02%)
+
+Melhor solução encontrada:
+  Máquina 0: [8, 5, 21, 9, 25, 39, 36, 3, 0, 18]
+  Máquina 1: [22, 6, 9, 10, 18, 31, 32, 3, 28, 20]
+  Máquina 2: [18, 14, 26, 24, 19, 0, 12, 35, 7, 29]
+  Máquina 3: [36, 32, 21, 9, 38, 27, 28, 11, 34, 3]

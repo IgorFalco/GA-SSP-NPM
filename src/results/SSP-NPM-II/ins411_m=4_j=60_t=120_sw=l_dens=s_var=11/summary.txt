@@ -1,0 +1,25 @@
+Instância: ins411_m=4_j=60_t=120_sw=l_dens=s_var=11
+============================================================
+
+Parâmetros do AG:
+  - População: 100
+  - Gerações: 1000
+  - Prob. Crossover: 0.8
+  - Prob. Mutação: 0.2
+
+Dados da Instância:
+  - Máquinas: 4
+  - Jobs: 60
+  - Ferramentas: 120
+
+Resultados:
+  - Tempo de execução: 8.87s
+  - Makespan inicial: 361.0
+  - Melhor makespan: 312.0
+  - Melhoria: 49.0 (13.57%)
+
+Melhor solução encontrada:
+  Máquina 0: [16, 49, 41, 7, 12, 13, 50, 9, 32, 20, 3, 39, 57, 33, 58]
+  Máquina 1: [10, 44, 14, 2, 35, 37, 32, 39, 52, 59, 51, 20, 0, 46, 30]
+  Máquina 2: [23, 26, 8, 17, 21, 55, 56, 24, 46, 2, 28, 38, 54, 0, 11]
+  Máquina 3: [30, 4, 1, 48, 52, 44, 15, 43, 45, 6, 34, 18, 40, 25, 51]

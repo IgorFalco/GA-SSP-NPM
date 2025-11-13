@@ -1,0 +1,24 @@
+Instância: ins159_m=3_j=20_t=20_var=19
+============================================================
+
+Parâmetros do AG:
+  - População: 100
+  - Gerações: 1000
+  - Prob. Crossover: 0.8
+  - Prob. Mutação: 0.2
+
+Dados da Instância:
+  - Máquinas: 3
+  - Jobs: 20
+  - Ferramentas: 20
+
+Resultados:
+  - Tempo de execução: 3.18s
+  - Makespan inicial: 76.0
+  - Melhor makespan: 61.0
+  - Melhoria: 15.0 (19.74%)
+
+Melhor solução encontrada:
+  Máquina 0: [18, 19, 1, 15, 16, 14, 5]
+  Máquina 1: [10, 4, 1, 14, 6, 12, 18]
+  Máquina 2: [1, 11, 17, 2, 13, 4]

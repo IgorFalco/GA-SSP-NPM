@@ -1,0 +1,25 @@
+Instância: ins233_m=4_j=40_t=60_sw=h_dens=d_var=13
+============================================================
+
+Parâmetros do AG:
+  - População: 100
+  - Gerações: 1000
+  - Prob. Crossover: 0.8
+  - Prob. Mutação: 0.2
+
+Dados da Instância:
+  - Máquinas: 4
+  - Jobs: 40
+  - Ferramentas: 60
+
+Resultados:
+  - Tempo de execução: 5.94s
+  - Makespan inicial: 836.0
+  - Melhor makespan: 712.0
+  - Melhoria: 124.0 (14.83%)
+
+Melhor solução encontrada:
+  Máquina 0: [36, 19, 7, 14, 1, 26, 37, 33, 31]
+  Máquina 1: [23, 26, 25, 6, 29, 20, 11, 34, 18]
+  Máquina 2: [16, 27, 5, 15, 39, 24, 9, 0, 8, 35]
+  Máquina 3: [21, 28, 22, 10, 1, 30, 32, 13, 8, 12, 17]

@@ -1,0 +1,3 @@
+instance,makespan,execution_time,machine_id,jobs
+ins37_m=2_j=15_t=10_var=17,52.0,2.26727032661438,0,7;8;2;9;6;13;12;3
+ins37_m=2_j=15_t=10_var=17,52.0,2.26727032661438,1,12;6;5;0;8;9;10

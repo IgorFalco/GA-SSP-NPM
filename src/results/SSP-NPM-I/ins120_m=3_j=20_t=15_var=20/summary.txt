@@ -1,0 +1,24 @@
+Instância: ins120_m=3_j=20_t=15_var=20
+============================================================
+
+Parâmetros do AG:
+  - População: 100
+  - Gerações: 1000
+  - Prob. Crossover: 0.8
+  - Prob. Mutação: 0.2
+
+Dados da Instância:
+  - Máquinas: 3
+  - Jobs: 20
+  - Ferramentas: 15
+
+Resultados:
+  - Tempo de execução: 3.11s
+  - Makespan inicial: 67.0
+  - Melhor makespan: 59.0
+  - Melhoria: 8.0 (11.94%)
+
+Melhor solução encontrada:
+  Máquina 0: [19, 11, 5, 7, 15, 9, 13]
+  Máquina 1: [1, 15, 17, 12, 7, 16, 13]
+  Máquina 2: [19, 12, 10, 15, 18, 2]

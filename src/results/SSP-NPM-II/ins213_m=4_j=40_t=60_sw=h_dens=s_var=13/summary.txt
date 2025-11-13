@@ -1,0 +1,25 @@
+Instância: ins213_m=4_j=40_t=60_sw=h_dens=s_var=13
+============================================================
+
+Parâmetros do AG:
+  - População: 100
+  - Gerações: 1000
+  - Prob. Crossover: 0.8
+  - Prob. Mutação: 0.2
+
+Dados da Instância:
+  - Máquinas: 4
+  - Jobs: 40
+  - Ferramentas: 60
+
+Resultados:
+  - Tempo de execução: 5.88s
+  - Makespan inicial: 256.0
+  - Melhor makespan: 207.0
+  - Melhoria: 49.0 (19.14%)
+
+Melhor solução encontrada:
+  Máquina 0: [12, 21, 9, 22, 10, 13, 20, 35, 19, 23]
+  Máquina 1: [9, 27, 4, 33, 38, 6, 8, 3, 13, 17]
+  Máquina 2: [19, 20, 0, 22, 16, 32, 12, 13, 31, 9]
+  Máquina 3: [18, 17, 9, 21, 19, 24, 34, 16, 1, 8]

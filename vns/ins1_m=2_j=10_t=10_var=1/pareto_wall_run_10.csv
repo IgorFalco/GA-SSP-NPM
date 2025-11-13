@@ -1,0 +1,11 @@
+instance,solution_id,iterations,execution_time,tool_switches,makespan
+ins1_m=2_j=10_t=10_var=1.csv,iter_963_perturbed,1000,40.042253255844116,3,59
+ins1_m=2_j=10_t=10_var=1.csv,iter_904_perturbed,1000,40.042253255844116,3,59
+ins1_m=2_j=10_t=10_var=1.csv,iter_964_perturbed_vnd_job_exchange_vnd_job_exchange_vnd_job_exchange_vnd_job_exchange,1000,40.042253255844116,3,59
+ins1_m=2_j=10_t=10_var=1.csv,iter_563_perturbed_vnd_swap,1000,40.042253255844116,3,59
+ins1_m=2_j=10_t=10_var=1.csv,iter_834_perturbed,1000,40.042253255844116,3,59
+ins1_m=2_j=10_t=10_var=1.csv,iter_934_perturbed_vnd_swap_vnd_swap,1000,40.042253255844116,3,59
+ins1_m=2_j=10_t=10_var=1.csv,iter_905_perturbed_vnd_swap,1000,40.042253255844116,3,59
+ins1_m=2_j=10_t=10_var=1.csv,iter_967_perturbed,1000,40.042253255844116,3,59
+ins1_m=2_j=10_t=10_var=1.csv,iter_55_perturbed_vnd_job_exchange_vnd_job_exchange_vnd_swap,1000,40.042253255844116,4,32
+ins1_m=2_j=10_t=10_var=1.csv,iter_985_perturbed,1000,40.042253255844116,4,32

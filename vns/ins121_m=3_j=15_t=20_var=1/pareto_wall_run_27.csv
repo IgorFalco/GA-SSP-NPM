@@ -1,0 +1,11 @@
+instance,solution_id,iterations,execution_time,tool_switches,makespan
+ins121_m=3_j=15_t=20_var=1.csv,iter_1740_perturbed_vnd_job_exchange_vnd_insertion_vnd_insertion_vnd_swap,2250,238.1666600704193,10,79
+ins121_m=3_j=15_t=20_var=1.csv,iter_2031_perturbed_vnd_job_exchange_vnd_insertion_vnd_job_exchange,2250,238.1666600704193,10,79
+ins121_m=3_j=15_t=20_var=1.csv,iter_2126_perturbed_vnd_job_exchange_vnd_job_exchange_vnd_swap,2250,238.1666600704193,11,76
+ins121_m=3_j=15_t=20_var=1.csv,iter_2093_perturbed,2250,238.1666600704193,12,63
+ins121_m=3_j=15_t=20_var=1.csv,iter_2098_perturbed_vnd_job_exchange_vnd_job_exchange_vnd_insertion_vnd_swap_vnd_swap,2250,238.1666600704193,12,63
+ins121_m=3_j=15_t=20_var=1.csv,iter_2150_perturbed_vnd_job_exchange_vnd_job_exchange_vnd_swap_vnd_swap,2250,238.1666600704193,13,52
+ins121_m=3_j=15_t=20_var=1.csv,iter_2245_perturbed_vnd_job_exchange_vnd_insertion,2250,238.1666600704193,14,45
+ins121_m=3_j=15_t=20_var=1.csv,iter_2226_perturbed_vnd_job_exchange_vnd_job_exchange_vnd_job_exchange_vnd_job_exchange_vnd_job_exchange_vnd_job_exchange_vnd_insertion_vnd_insertion_vnd_insertion,2250,238.1666600704193,15,42
+ins121_m=3_j=15_t=20_var=1.csv,iter_1405_perturbed_vnd_job_exchange_vnd_insertion_vnd_job_exchange_vnd_insertion,2250,238.1666600704193,17,41
+ins121_m=3_j=15_t=20_var=1.csv,iter_1810_perturbed_vnd_job_exchange_vnd_two_opt_vnd_job_exchange_vnd_job_exchange,2250,238.1666600704193,17,41

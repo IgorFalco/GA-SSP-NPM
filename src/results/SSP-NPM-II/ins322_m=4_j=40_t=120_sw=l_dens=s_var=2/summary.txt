@@ -1,0 +1,25 @@
+Instância: ins322_m=4_j=40_t=120_sw=l_dens=s_var=2
+============================================================
+
+Parâmetros do AG:
+  - População: 100
+  - Gerações: 1000
+  - Prob. Crossover: 0.8
+  - Prob. Mutação: 0.2
+
+Dados da Instância:
+  - Máquinas: 4
+  - Jobs: 40
+  - Ferramentas: 120
+
+Resultados:
+  - Tempo de execução: 6.38s
+  - Makespan inicial: 248.0
+  - Melhor makespan: 224.0
+  - Melhoria: 24.0 (9.68%)
+
+Melhor solução encontrada:
+  Máquina 0: [24, 15, 27, 26, 36, 23, 35, 19, 6, 5]
+  Máquina 1: [38, 14, 13, 8, 22, 18, 29, 32, 28, 33]
+  Máquina 2: [5, 9, 18, 17, 27, 29, 30, 8, 3, 38]
+  Máquina 3: [0, 14, 20, 13, 22, 38, 5, 35, 6, 15]

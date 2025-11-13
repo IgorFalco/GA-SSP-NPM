@@ -1,0 +1,24 @@
+Instância: ins134_m=3_j=15_t=20_var=14
+============================================================
+
+Parâmetros do AG:
+  - População: 100
+  - Gerações: 1000
+  - Prob. Crossover: 0.8
+  - Prob. Mutação: 0.2
+
+Dados da Instância:
+  - Máquinas: 3
+  - Jobs: 15
+  - Ferramentas: 20
+
+Resultados:
+  - Tempo de execução: 2.82s
+  - Makespan inicial: 53.0
+  - Melhor makespan: 43.0
+  - Melhoria: 10.0 (18.87%)
+
+Melhor solução encontrada:
+  Máquina 0: [13, 6, 8, 3, 2]
+  Máquina 1: [10, 3, 1, 2, 0]
+  Máquina 2: [13, 2, 9, 7, 14]

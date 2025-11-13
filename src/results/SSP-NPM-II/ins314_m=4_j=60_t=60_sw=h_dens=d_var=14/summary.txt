@@ -1,0 +1,25 @@
+Instância: ins314_m=4_j=60_t=60_sw=h_dens=d_var=14
+============================================================
+
+Parâmetros do AG:
+  - População: 100
+  - Gerações: 1000
+  - Prob. Crossover: 0.8
+  - Prob. Mutação: 0.2
+
+Dados da Instância:
+  - Máquinas: 4
+  - Jobs: 60
+  - Ferramentas: 60
+
+Resultados:
+  - Tempo de execução: 8.21s
+  - Makespan inicial: 1301.0
+  - Melhor makespan: 1110.0
+  - Melhoria: 191.0 (14.68%)
+
+Melhor solução encontrada:
+  Máquina 0: [56, 54, 33, 11, 20, 44, 52, 16, 47, 37, 6, 45, 23]
+  Máquina 1: [41, 40, 2, 17, 26, 9, 3, 27, 32, 43, 5, 47, 38, 4, 39]
+  Máquina 2: [24, 15, 19, 55, 17, 41, 35, 53, 57, 25, 7, 21, 45, 32, 30]
+  Máquina 3: [36, 58, 49, 14, 1, 50, 55, 42, 12, 46, 59, 31, 29, 8, 0]
