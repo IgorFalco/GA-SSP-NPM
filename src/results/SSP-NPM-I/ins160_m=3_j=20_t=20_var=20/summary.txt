@@ -13,12 +13,12 @@ Dados da Instância:
   - Ferramentas: 20
 
 Resultados:
-  - Tempo de execução: 3.18s
+  - Tempo de execução: 6.13s
   - Makespan inicial: 78.0
-  - Melhor makespan: 55.0
-  - Melhoria: 23.0 (29.49%)
+  - Melhor makespan: 56.0
+  - Melhoria: 22.0 (28.21%)
 
 Melhor solução encontrada:
   Máquina 0: [4, 17, 16, 13, 5, 10, 1]
-  Máquina 1: [3, 19, 18, 6, 7, 14, 16]
-  Máquina 2: [15, 4, 7, 9, 10, 2]
+  Máquina 1: [12, 15, 0, 19, 7, 3, 14]
+  Máquina 2: [8, 11, 2, 9, 18, 6]

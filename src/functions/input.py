@@ -1,33 +1,43 @@
+"""Módulo para leitura de instâncias do problema SSP-NPM."""
+
 import numpy as np
 import pandas as pd
 
 
 def read_problem_instance(file_path):
-
+    """Lê e parseia um arquivo de instância SSP-NPM.
+    
+    Args:
+        file_path: Caminho para o arquivo CSV da instância.
+        
+    Returns:
+        dict: Dicionário contendo todos os parâmetros da instância.
+    """
     df = pd.read_csv(file_path, header=None, sep=';')
-
-    num_machines, num_jobs, num_tools = df.iloc[0, :3].dropna().astype(
-        int).to_list()
-
+    
+    num_machines, num_jobs, num_tools = df.iloc[0, :3].dropna().astype(int).to_list()
+    
     magazines_capacities = np.array(
-        df.iloc[1, :num_machines].dropna().astype(int).to_list(), dtype=np.int64)
-
+        df.iloc[1, :num_machines].dropna().astype(int).to_list(), 
+        dtype=np.int64
+    )
+    
     tool_change_costs = np.array(
-        df.iloc[2, :num_machines].dropna().astype(int).to_list(), dtype=np.int64)
-
+        df.iloc[2, :num_machines].dropna().astype(int).to_list(), 
+        dtype=np.int64
+    )
+    
     job_cost_per_machine = np.empty((num_machines, num_jobs), dtype=np.int64)
-
     for i in range(num_machines):
-        job_cost_per_machine[i, :] = df.iloc[3 + i,
-                                             :num_jobs].dropna().astype(int).to_list()
-
+        job_cost_per_machine[i, :] = df.iloc[3 + i, :num_jobs].dropna().astype(int).to_list()
+    
     tools_requirements_matrix = np.array(
-        df.iloc[3 + num_machines:,
-                :num_jobs].dropna(axis=1).astype(int).values,
-        dtype=np.int64)
-
+        df.iloc[3 + num_machines:, :num_jobs].dropna(axis=1).astype(int).values,
+        dtype=np.int64
+    )
+    
     tools_per_job = tools_requirements_matrix.sum(axis=0)
-
+    
     return {
         "num_machines": num_machines,
         "num_jobs": num_jobs,

@@ -1,20 +1,18 @@
-"""
-Implementação de Algoritmo Genético usando DEAP para o problema SSP-NPM
-Versão monoobjetivo: Minimiza apenas o makespan
-Processa todas as instâncias da pasta SSP-NPM-I
+"""Algoritmo Genético para o problema SSP-NPM usando DEAP.
+
+Este módulo implementa um AG monoobjetivo para minimização de makespan,
+processando instâncias SSP-NPM-I e SSP-NPM-II em lote.
 """
 
 import os
 import sys
 import time
 import random
+import csv
 import numpy as np
 import pandas as pd
-import csv
-from pathlib import Path
 from deap import base, creator, tools, algorithms
 
-# Adiciona o caminho do projeto
 BASE_DIR = os.path.dirname(__file__)
 sys.path.append(os.path.join(BASE_DIR, '..'))
 
@@ -25,7 +23,6 @@ from functions.metaheuristics import (
     check_machine_eligibility
 )
 
-# Configurações globais
 INSTANCES_BASE_DIR = os.path.join(BASE_DIR, "../instances")
 RESULTS_BASE_DIR = os.path.join(BASE_DIR, "results")
 POPULATION_SIZE = 100
@@ -34,17 +31,12 @@ CROSSOVER_PROB = 0.8
 MUTATION_PROB = 0.2
 TOURNAMENT_SIZE = 3
 
-# Pastas de instâncias a serem processadas
 INSTANCE_FOLDERS = ["SSP-NPM-I", "SSP-NPM-II"]
 
-# Cria diretório de resultados se não existir
 os.makedirs(RESULTS_BASE_DIR, exist_ok=True)
 
-# Variável global para armazenar dados da instância atual
 instance_data = None
 
-# Configuração do DEAP
-# Minimização de um único objetivo (makespan)
 if not hasattr(creator, "FitnessMin"):
     creator.create("FitnessMin", base.Fitness, weights=(-1.0,))
 if not hasattr(creator, "Individual"):
@@ -54,22 +46,16 @@ toolbox = base.Toolbox()
 
 
 def create_individual():
-    """
-    Cria um indivíduo (solução) como uma matriz de atribuições de jobs às máquinas
-    Formato: lista de listas (num_machines, num_jobs) com -1 para posições vazias
-    """
+    """Cria um indivíduo usando heurística gulosa."""
     num_machines = instance_data["num_machines"]
     num_jobs = instance_data["num_jobs"]
     magazines_capacities = instance_data["magazines_capacities"]
     tools_per_job = instance_data["tools_per_job"]
     
-    # Permutação aleatória dos jobs
     jobs_list = np.random.permutation(num_jobs)
     job_assignment = np.full((num_machines, num_jobs), -1, dtype=np.int64)
     
-    # Atribui jobs às máquinas de forma gulosa
     for job_id in jobs_list:
-        # Tenta atribuir à máquina com menor carga
         machine_loads = []
         for m in range(num_machines):
             if check_machine_eligibility(job_id, m, magazines_capacities, tools_per_job):
@@ -77,19 +63,15 @@ def create_individual():
                 machine_loads.append((load, m))
         
         if machine_loads:
-            # Escolhe a máquina menos carregada
             _, selected_machine = min(machine_loads)
             pos = np.where(job_assignment[selected_machine] == -1)[0][0]
             job_assignment[selected_machine, pos] = job_id
     
-    # Converte para lista para compatibilidade com DEAP
     return creator.Individual(job_assignment.tolist())
 
 
 def evaluate_makespan(individual):
-    """
-    Avalia o makespan (tempo máximo de conclusão) de uma solução
-    """
+    """Avalia o makespan de uma solução."""
     job_assignment = np.array(individual, dtype=np.int64)
     
     makespans = calculate_makespan_all_machines(
@@ -100,75 +82,115 @@ def evaluate_makespan(individual):
         instance_data["job_cost_per_machine"]
     )
     
-    system_makespan = get_system_makespan(makespans)
-    return (int(system_makespan),)
+    return (int(get_system_makespan(makespans)),)
 
 
 def mutate_swap(individual):
-    """
-    Mutação: troca dois jobs dentro da mesma máquina
-    """
+    """Mutação: troca dois jobs dentro da mesma máquina."""
     individual_array = np.array(individual, dtype=np.int64)
     num_machines = individual_array.shape[0]
     
-    # Escolhe uma máquina aleatória
     machine_id = random.randint(0, num_machines - 1)
     valid_jobs = np.where(individual_array[machine_id] != -1)[0]
     
     if len(valid_jobs) >= 2:
-        # Troca dois jobs aleatórios
         pos1, pos2 = random.sample(list(valid_jobs), 2)
         individual_array[machine_id, pos1], individual_array[machine_id, pos2] = \
             individual_array[machine_id, pos2], individual_array[machine_id, pos1]
     
-    # Atualiza o indivíduo com os valores modificados
     for i in range(len(individual)):
         individual[i] = individual_array[i].tolist()
     
     return (individual,)
 
 
-def crossover_pmx(ind1, ind2):
-    """
-    Crossover: troca uma máquina inteira entre dois indivíduos
-    """
-    # Converte para arrays
+def crossover(ind1, ind2):
+    """Crossover que troca uma máquina entre indivíduos e repara duplicatas."""
     arr1 = np.array(ind1, dtype=np.int64)
     arr2 = np.array(ind2, dtype=np.int64)
-    
-    num_machines = arr1.shape[0]
-    
-    if num_machines < 2:
-        return ind1, ind2
-    
-    # Escolhe uma máquina aleatória para trocar
+
+    num_machines, num_positions = arr1.shape
+    num_jobs = instance_data["num_jobs"]
+
     machine_to_swap = random.randint(0, num_machines - 1)
-    
-    # Cria filhos trocando a máquina escolhida
+
     child1 = arr1.copy()
     child2 = arr2.copy()
-    
-    child1[machine_to_swap], child2[machine_to_swap] = arr2[machine_to_swap].copy(), arr1[machine_to_swap].copy()
-    
-    # Converte de volta para lista
-    for i in range(len(ind1)):
-        ind1[i] = child1[i].tolist()
-        ind2[i] = child2[i].tolist()
-    
-    return ind1, ind2
+
+    child1[machine_to_swap], child2[machine_to_swap] = (
+        arr2[machine_to_swap].copy(),
+        arr1[machine_to_swap].copy(),
+    )
+
+    def remove_duplicates(matrix):
+        seen = set()
+        for i in range(num_machines):
+            for j in range(num_positions):
+                job = matrix[i][j]
+                if job == -1:
+                    continue
+                if job in seen:
+                    matrix[i][j] = -1
+                else:
+                    seen.add(job)
+        return seen
+
+    seen1 = remove_duplicates(child1)
+    seen2 = remove_duplicates(child2)
+
+    all_jobs = set(range(num_jobs))
+    missing1 = list(all_jobs - seen1)
+    missing2 = list(all_jobs - seen2)
+
+    def reinsert_missing(matrix, missing_jobs):
+        for job in missing_jobs:
+            candidates = []
+            for m in range(num_machines):
+                if check_machine_eligibility(
+                    job, m,
+                    instance_data["magazines_capacities"],
+                    instance_data["tools_per_job"],
+                ):
+                    load = np.sum(matrix[m] != -1)
+                    candidates.append((load, m))
+
+            if not candidates:
+                for m in range(num_machines):
+                    free = np.where(matrix[m] == -1)[0]
+                    if len(free) > 0:
+                        matrix[m][free[0]] = job
+                        break
+                continue
+
+            _, best_machine = min(candidates)
+            free_positions = np.where(matrix[best_machine] == -1)[0]
+
+            if len(free_positions) > 0:
+                matrix[best_machine][free_positions[0]] = job
+            else:
+                for m in range(num_machines):
+                    free = np.where(matrix[m] == -1)[0]
+                    if len(free) > 0:
+                        matrix[m][free[0]] = job
+                        break
+
+    reinsert_missing(child1, missing1)
+    reinsert_missing(child2, missing2)
+
+    return creator.Individual(child1.tolist()), creator.Individual(child2.tolist())
 
 
-# Registro das operações no toolbox
+toolbox = base.Toolbox()
 toolbox.register("individual", create_individual)
 toolbox.register("population", tools.initRepeat, list, toolbox.individual)
 toolbox.register("evaluate", evaluate_makespan)
-toolbox.register("mate", crossover_pmx)
+toolbox.register("mate", crossover)
 toolbox.register("mutate", mutate_swap)
 toolbox.register("select", tools.selTournament, tournsize=TOURNAMENT_SIZE)
 
 
-def plot_evolution(logbook, save_path="evolution.png", instance_name=""):
-    """Plota a evolução do fitness ao longo das gerações"""
+def plot_evolution(logbook, save_path, instance_name):
+    """Plota a evolução do fitness ao longo das gerações."""
     try:
         import matplotlib.pyplot as plt
         
@@ -184,7 +206,7 @@ def plot_evolution(logbook, save_path="evolution.png", instance_name=""):
         
         plt.xlabel('Geração', fontsize=12)
         plt.ylabel('Makespan', fontsize=12)
-        plt.title(f'Evolução do Fitness - AG Monoobjetivo\n{instance_name}', fontsize=14, fontweight='bold')
+        plt.title(f'Evolução do Fitness - AG\n{instance_name}', fontsize=14, fontweight='bold')
         plt.legend(fontsize=10, loc='upper right')
         plt.grid(True, alpha=0.3, linestyle='--')
         plt.tight_layout()
@@ -193,28 +215,24 @@ def plot_evolution(logbook, save_path="evolution.png", instance_name=""):
         plt.close()
         print(f"  ✓ Gráfico salvo: {os.path.basename(save_path)}")
     except ImportError:
-        print("  ⚠ Matplotlib não disponível. Gráfico não foi gerado.")
+        print("  ⚠ Matplotlib não disponível")
     except Exception as e:
         print(f"  ⚠ Erro ao gerar gráfico: {e}")
 
 
 def save_evolution_csv(logbook, save_path, instance_name, execution_time, best_makespan):
-    """Salva os dados de evolução em CSV"""
+    """Salva dados de evolução em CSV."""
     try:
-        with open(save_path, 'w', newline='') as f:
+        with open(save_path, 'w', newline='', encoding='utf-8') as f:
             writer = csv.writer(f)
             # Cabeçalho
-            writer.writerow(['instance', 'generation', 'min', 'avg', 'max', 'std', 'execution_time', 'best_makespan'])
+            writer.writerow(['instance', 'generation', 'min', 'avg', 'max', 'std', 
+                            'execution_time', 'best_makespan'])
             
-            # Dados por geração
             for record in logbook:
                 writer.writerow([
-                    instance_name,
-                    record['gen'],
-                    record['min'],
-                    record['avg'],
-                    record['max'],
-                    record['std'],
+                    instance_name, record['gen'], record['min'], record['avg'],
+                    record['max'], record['std'],
                     execution_time if record['gen'] == len(logbook) - 1 else '',
                     best_makespan if record['gen'] == len(logbook) - 1 else ''
                 ])
@@ -224,10 +242,10 @@ def save_evolution_csv(logbook, save_path, instance_name, execution_time, best_m
 
 
 def save_best_solution(best_individual, save_path, instance_name, best_makespan, execution_time):
-    """Salva a melhor solução encontrada"""
+    """Salva a melhor solução encontrada."""
     try:
         best_array = np.array(best_individual, dtype=np.int64)
-        with open(save_path, 'w', newline='') as f:
+        with open(save_path, 'w', newline='', encoding='utf-8') as f:
             writer = csv.writer(f)
             writer.writerow(['instance', 'makespan', 'execution_time', 'machine_id', 'jobs'])
             
